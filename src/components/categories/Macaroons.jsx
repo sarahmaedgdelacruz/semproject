@@ -1,43 +1,41 @@
 import { useState } from "react";
 import supabase from "../../lib/supabaseClient";
 
-// IMAGE IMPORTS
-import dnt1 from "../../elements/dnt1.jpg";
-import dnt2 from "../../elements/dnt2.jpg";
-import dnt3 from "../../elements/dnt3.jpg";
-import dnt4 from "../../elements/dnt4.jpg";
+import mc1 from "../../elements/mc1.jpg";
+import mc2 from "../../elements/mc2.jpg";
+import mc3 from "../../elements/mc3.jpg";
+import mc4 from "../../elements/mc4.jpg";
 
-const Donuts = () => {
+const Macaroons = () => {
   const items = [
     {
-      name: "Crème Brûlée Donut",
-      price: "₱120",
-      desc: "Luxuriously filled donut with creamy custard and a caramelized sugar top.",
-      img: dnt1,
+      name: "Pistachio Macaroon",
+      price: "₱85",
+      desc: "Crunchy shell with a smooth pistachio cream filling.",
+      img: mc1,
     },
     {
-      name: "Strawberry Frosted Donut",
+      name: "Raspberry Macaroon",
+      price: "₱95",
+      desc: "Sweet and tart raspberry filling wrapped in a delicate cookie shell.",
+      img: mc2,
+    },
+    {
+      name: "Lemon Macaroon",
+      price: "₱90",
+      desc: "Bright and zesty lemon cream inside a crisp yellow macaroon.",
+      img: mc3,
+    },
+    {
+      name: "Holiday Macaroon",
       price: "₱110",
-      desc: "Soft donut topped with sweet strawberry glaze and real strawberry bits.",
-      img: dnt2,
-    },
-    {
-      name: "Triple Chocolate Donut",
-      price: "₱130",
-      desc: "Decadent donut covered in rich chocolate and topped with chocolate drizzle.",
-      img: dnt3,
-    },
-    {
-      name: "Classic Filled Donut",
-      price: "₱100",
-      desc: "Soft classic donut with a smooth, creamy filling inside.",
-      img: dnt4,
+      desc: "Festive macaroon with creamy filling and Christmas-themed design.",
+      img: mc4,
     },
   ];
 
   const [qty, setQty] = useState(items.map(() => 0));
 
-  // UPDATE QUANTITY
   const handleQtyChange = (index, value) => {
     const num = Math.max(1, Math.min(10, Number(value)));
     const updated = [...qty];
@@ -45,10 +43,9 @@ const Donuts = () => {
     setQty(updated);
   };
 
-  // ADD TO CART
   const handleAddToCart = async (item, qty) => {
     if (qty === 0) {
-      alert("Please select quantity 😊");
+      alert("Please select quantity first!");
       return;
     }
 
@@ -62,8 +59,7 @@ const Donuts = () => {
     ]);
 
     if (error) {
-      alert("❌ Error adding to cart");
-      console.log(error);
+      alert("❌ Error adding to cart!");
     } else {
       alert("✔ Successfully added to cart!");
     }
@@ -87,7 +83,7 @@ const Donuts = () => {
       {/* CONTENT */}
       <div className="relative z-10 py-16 px-6">
         <h1 className="text-3xl font-bold text-white text-center mb-10">
-          Donuts 🍩
+          Macaroons 🥮
         </h1>
 
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -143,4 +139,4 @@ const Donuts = () => {
   );
 };
 
-export default Donuts;
+export default Macaroons;

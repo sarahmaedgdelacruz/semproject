@@ -5,7 +5,7 @@ import { useState } from "react";
 
 // Components
 import Navbar from "./components/Navbar.jsx";
-import HomePage from "./components/Homepage.jsx";
+import Homepage from "./components/Homepage.jsx";
 import About from "./components/About.jsx";
 import Faqs from "./components/Faqs.jsx";
 import Footer from "./components/Footer.jsx";
@@ -16,6 +16,7 @@ import RequireAuth from "./components/RequireAuth.jsx";
 
 // Pages
 import Carts from "./components/Carts.jsx";
+// 🔥 Your Carts.jsx MUST be inside /customer or fix path
 
 // Categories
 import Cakes from "./components/categories/Cakes.jsx";
@@ -25,7 +26,7 @@ import Cupcakes from "./components/categories/Cupcakes.jsx";
 import Donuts from "./components/categories/Donuts.jsx";
 import Macaroons from "./components/categories/Macaroons.jsx";
 
-// ⭐ Terms Modal
+// Terms Modal
 import TermsModal from "./components/TermsModal.jsx";
 
 function App() {
@@ -40,7 +41,7 @@ function App() {
 
       <Routes>
         {/* HOME */}
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<Homepage />} />
 
         {/* PRODUCTS */}
         <Route path="/products" element={<Products />} />
@@ -73,10 +74,10 @@ function App() {
         <Route path="/customer-service" element={<CustomerService />} />
       </Routes>
 
-      {/* ⭐ POPUP MODAL */}
+      {/* POPUP MODAL */}
       <TermsModal isOpen={showTerms} onClose={() => setShowTerms(false)} />
 
-      {/* ⭐ FOOTER that opens modal */}
+      {/* FOOTER triggers popup */}
       <Footer onOpenTerms={() => setShowTerms(true)} />
     </Router>
   );

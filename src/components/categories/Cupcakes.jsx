@@ -1,37 +1,36 @@
 import { useState } from "react";
 import supabase from "../../lib/supabaseClient";
 
-// IMAGE IMPORTS
-import ck1 from "../../elements/ck1.jpg";
-import ck2 from "../../elements/ck2.jpg";
-import ck3 from "../../elements/ck3.jpg";
-import ck4 from "../../elements/ck4.jpg";
+import cc1 from "../../elements/cc1.jpg";
+import cc2 from "../../elements/cc2.jpg";
+import cc3 from "../../elements/cc3.jpg";
+import cc4 from "../../elements/cc4.jpg";
 
-const Cookies = () => {
+const Cupcakes = () => {
   const items = [
     {
-      name: "Caramel Crunch Cookie",
+      name: "Nutty Choco Delight",
       price: "₱85",
-      desc: "Soft-baked cookie filled with caramel and topped with white chocolate drizzle.",
-      img: ck1,
+      desc: "Rich chocolate cupcake topped with crushed nuts and a swirl of whipped cream.",
+      img: cc1,
     },
     {
-      name: "Pistachio Bliss Cookie",
+      name: "Strawberry Velvet Cupcake",
       price: "₱120",
-      desc: "Chewy premium cookie loaded with pistachios and a rich nutty flavor.",
-      img: ck4,
+      desc: "Red velvet cupcake filled with sweetness and topped with fresh strawberry goodness.",
+      img: cc2,
     },
     {
-      name: "Red Velvet White Choco Cookie",
-      price: "₱110",
-      desc: "Moist red velvet cookie packed with creamy white chocolate filling.",
-      img: ck3,
+      name: "Blueberry Swirl Cupcake",
+      price: "₱125",
+      desc: "Soft vanilla cupcake bursting with blueberry flavor and creamy blueberry icing.",
+      img: cc3,
     },
     {
-      name: "S’mores Melt Cookie",
-      price: "₱95",
-      desc: "Gooey s’mores cookie with toasted marshmallow, chocolate chunks, and graham bits.",
-      img: ck2,
+      name: "Biscoff Crumble Cupcake",
+      price: "₱135",
+      desc: "Moist cupcake topped with creamy Biscoff frosting and cookie crumble for extra crunch.",
+      img: cc4,
     },
   ];
 
@@ -46,7 +45,7 @@ const Cookies = () => {
 
   const handleAddToCart = async (item, qty) => {
     if (qty === 0) {
-      alert("Please select quantity");
+      alert("⚠️ Please select quantity");
       return;
     }
 
@@ -84,7 +83,7 @@ const Cookies = () => {
       {/* MAIN CONTENT */}
       <div className="relative z-10 py-16 px-6">
         <h1 className="text-3xl font-bold text-white text-center mb-10">
-          Cookies 🍪
+          Cupcakes 🧁
         </h1>
 
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -94,6 +93,7 @@ const Cookies = () => {
               className="bg-white/90 backdrop-blur-md p-6 rounded-xl shadow-lg hover:scale-[1.02] transition"
             >
               <div className="flex gap-6">
+                {/* IMAGE SIDE */}
                 <div className="w-1/2">
                   <img
                     src={item.img}
@@ -102,6 +102,7 @@ const Cookies = () => {
                   />
                 </div>
 
+                {/* DETAILS */}
                 <div className="w-1/2 flex flex-col justify-center text-center">
                   <h2 className="text-xl font-bold text-pink-700">
                     {item.name}
@@ -111,6 +112,7 @@ const Cookies = () => {
                     {item.price}
                   </p>
 
+                  {/* BUTTONS */}
                   <div className="flex justify-center items-center gap-3 mt-4">
                     <button
                       onClick={() => handleAddToCart(item, qty[index])}
@@ -138,4 +140,4 @@ const Cookies = () => {
   );
 };
 
-export default Cookies;
+export default Cupcakes;

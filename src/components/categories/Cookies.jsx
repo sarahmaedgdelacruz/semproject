@@ -1,37 +1,36 @@
 import { useState } from "react";
-import supabase from "../../../lib/supabaseClient";
+import supabase from "../../lib/supabaseClient";
 
-// IMAGE IMPORTS
-import mc1 from "../../elements/mc1.jpg";
-import mc2 from "../../elements/mc2.jpg";
-import mc3 from "../../elements/mc3.jpg";
-import mc4 from "../../elements/mc4.jpg";
+import ck1 from "../../elements/ck1.jpg";
+import ck2 from "../../elements/ck2.jpg";
+import ck3 from "../../elements/ck3.jpg";
+import ck4 from "../../elements/ck4.jpg";
 
-const Macaroons = () => {
+const Cookies = () => {
   const items = [
     {
-      name: "Pistachio Macaroon",
+      name: "Caramel Crunch Cookie",
       price: "₱85",
-      desc: "Crunchy shell with a smooth pistachio cream filling.",
-      img: mc1,
+      desc: "Soft-baked cookie filled with caramel and topped with white chocolate drizzle.",
+      img: ck1,
     },
     {
-      name: "Raspberry Macaroon",
-      price: "₱95",
-      desc: "Sweet and tart raspberry filling wrapped in a delicate cookie shell.",
-      img: mc2,
+      name: "Pistachio Bliss Cookie",
+      price: "₱120",
+      desc: "Chewy premium cookie loaded with pistachios and a rich nutty flavor.",
+      img: ck4,
     },
     {
-      name: "Lemon Macaroon",
-      price: "₱90",
-      desc: "Bright and zesty lemon cream inside a crisp yellow macaroon.",
-      img: mc3,
-    },
-    {
-      name: "Holiday Macaroon",
+      name: "Red Velvet White Choco Cookie",
       price: "₱110",
-      desc: "Festive macaroon with creamy filling and Christmas-themed design.",
-      img: mc4,
+      desc: "Moist red velvet cookie packed with creamy white chocolate filling.",
+      img: ck3,
+    },
+    {
+      name: "S’mores Melt Cookie",
+      price: "₱95",
+      desc: "Gooey s’mores cookie with toasted marshmallow, chocolate chunks, and graham bits.",
+      img: ck2,
     },
   ];
 
@@ -46,7 +45,7 @@ const Macaroons = () => {
 
   const handleAddToCart = async (item, qty) => {
     if (qty === 0) {
-      alert("Please select quantity first!");
+      alert("Please select quantity");
       return;
     }
 
@@ -60,7 +59,7 @@ const Macaroons = () => {
     ]);
 
     if (error) {
-      alert("❌ Error adding to cart!");
+      alert("❌ Error adding to cart");
     } else {
       alert("✔ Successfully added to cart!");
     }
@@ -81,10 +80,10 @@ const Macaroons = () => {
       {/* DARK OVERLAY */}
       <div className="absolute inset-0 bg-black/40"></div>
 
-      {/* CONTENT */}
+      {/* MAIN CONTENT */}
       <div className="relative z-10 py-16 px-6">
         <h1 className="text-3xl font-bold text-white text-center mb-10">
-          Macaroons 🥮
+          Cookies 🍪
         </h1>
 
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -94,7 +93,6 @@ const Macaroons = () => {
               className="bg-white/90 backdrop-blur-md p-6 rounded-xl shadow-lg hover:scale-[1.02] transition"
             >
               <div className="flex gap-6">
-                {/* IMAGE */}
                 <div className="w-1/2">
                   <img
                     src={item.img}
@@ -103,7 +101,6 @@ const Macaroons = () => {
                   />
                 </div>
 
-                {/* DETAILS */}
                 <div className="w-1/2 flex flex-col justify-center text-center">
                   <h2 className="text-xl font-bold text-pink-700">
                     {item.name}
@@ -140,4 +137,4 @@ const Macaroons = () => {
   );
 };
 
-export default Macaroons;
+export default Cookies;

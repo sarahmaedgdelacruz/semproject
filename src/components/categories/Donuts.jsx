@@ -1,42 +1,42 @@
 import { useState } from "react";
 import supabase from "../../lib/supabaseClient";
 
-// IMAGE IMPORTS
-import cc1 from "../../elements/cc1.jpg";
-import cc2 from "../../elements/cc2.jpg";
-import cc3 from "../../elements/cc3.jpg";
-import cc4 from "../../elements/cc4.jpg";
+import dnt1 from "../../elements/dnt1.jpg";
+import dnt2 from "../../elements/dnt2.jpg";
+import dnt3 from "../../elements/dnt3.jpg";
+import dnt4 from "../../elements/dnt4.jpg";
 
-const Cupcakes = () => {
+const Donuts = () => {
   const items = [
     {
-      name: "Nutty Choco Delight",
-      price: "₱85",
-      desc: "Rich chocolate cupcake topped with crushed nuts and a swirl of whipped cream.",
-      img: cc1,
-    },
-    {
-      name: "Strawberry Velvet Cupcake",
+      name: "Crème Brûlée Donut",
       price: "₱120",
-      desc: "Red velvet cupcake filled with sweetness and topped with fresh strawberry goodness.",
-      img: cc2,
+      desc: "Luxuriously filled donut with creamy custard and a caramelized sugar top.",
+      img: dnt1,
     },
     {
-      name: "Blueberry Swirl Cupcake",
-      price: "₱125",
-      desc: "Soft vanilla cupcake bursting with blueberry flavor and creamy blueberry icing.",
-      img: cc3,
+      name: "Strawberry Frosted Donut",
+      price: "₱110",
+      desc: "Soft donut topped with sweet strawberry glaze and real strawberry bits.",
+      img: dnt2,
     },
     {
-      name: "Biscoff Crumble Cupcake",
-      price: "₱135",
-      desc: "Moist cupcake topped with creamy Biscoff frosting and cookie crumble for extra crunch.",
-      img: cc4,
+      name: "Triple Chocolate Donut",
+      price: "₱130",
+      desc: "Decadent donut covered in rich chocolate and topped with chocolate drizzle.",
+      img: dnt3,
+    },
+    {
+      name: "Classic Filled Donut",
+      price: "₱100",
+      desc: "Soft classic donut with a smooth, creamy filling inside.",
+      img: dnt4,
     },
   ];
 
   const [qty, setQty] = useState(items.map(() => 0));
 
+  // UPDATE QUANTITY
   const handleQtyChange = (index, value) => {
     const num = Math.max(1, Math.min(10, Number(value)));
     const updated = [...qty];
@@ -44,9 +44,10 @@ const Cupcakes = () => {
     setQty(updated);
   };
 
+  // ADD TO CART
   const handleAddToCart = async (item, qty) => {
     if (qty === 0) {
-      alert("⚠️ Please select quantity");
+      alert("Please select quantity 😊");
       return;
     }
 
@@ -61,6 +62,7 @@ const Cupcakes = () => {
 
     if (error) {
       alert("❌ Error adding to cart");
+      console.log(error);
     } else {
       alert("✔ Successfully added to cart!");
     }
@@ -81,10 +83,10 @@ const Cupcakes = () => {
       {/* DARK OVERLAY */}
       <div className="absolute inset-0 bg-black/40"></div>
 
-      {/* MAIN CONTENT */}
+      {/* CONTENT */}
       <div className="relative z-10 py-16 px-6">
         <h1 className="text-3xl font-bold text-white text-center mb-10">
-          Cupcakes 🧁
+          Donuts 🍩
         </h1>
 
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -94,7 +96,7 @@ const Cupcakes = () => {
               className="bg-white/90 backdrop-blur-md p-6 rounded-xl shadow-lg hover:scale-[1.02] transition"
             >
               <div className="flex gap-6">
-                {/* IMAGE SIDE */}
+                {/* IMAGE */}
                 <div className="w-1/2">
                   <img
                     src={item.img}
@@ -113,7 +115,6 @@ const Cupcakes = () => {
                     {item.price}
                   </p>
 
-                  {/* BUTTONS */}
                   <div className="flex justify-center items-center gap-3 mt-4">
                     <button
                       onClick={() => handleAddToCart(item, qty[index])}
@@ -141,4 +142,4 @@ const Cupcakes = () => {
   );
 };
 
-export default Cupcakes;
+export default Donuts;

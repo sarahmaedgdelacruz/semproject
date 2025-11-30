@@ -1,12 +1,17 @@
 import React from "react";
 
+// IMPORT IMAGES / VIDEO PROPERLY
+import bgVideo from "../elements/bg-video.mp4";
+import aboutImg1 from "../elements/aboutus1.jpg";
+import aboutImg2 from "../elements/aboutus2.jpg";
+
 function About() {
   return (
     <div className="relative w-full h-screen overflow-hidden">
       {/* BACKGROUND VIDEO */}
       <video
         className="absolute inset-0 w-full h-full object-cover"
-        src="/src/elements/bg-video.mp4"
+        src={bgVideo}
         autoPlay
         loop
         muted
@@ -21,7 +26,7 @@ function About() {
         <div className="flex items-center justify-center gap-10">
           {/* LEFT IMAGE */}
           <img
-            src="/src/elements/aboutus1.jpg"
+            src={aboutImg1}
             alt="Chocolate Cake"
             className="hidden md:block w-56 h-56 md:w-64 md:h-100 object-cover rounded-xl shadow-2xl"
           />
@@ -43,30 +48,24 @@ function About() {
               <p>
                 We believe every dessert carries a story. Each cake we make is
                 crafted with patience, premium ingredients, and attention to
-                every detail. From classic favorites to unique signature
-                creations, we pour love and creativity into everything we bake.
+                every detail.
               </p>
 
               <p>
-                Over the years, we’ve been part of countless birthdays,
-                anniversaries, weddings, and celebrations — a privilege we
-                cherish deeply. Seeing our customers smile is what inspires us
-                to keep improving and exploring more flavors and designs.
+                Over the years, we’ve been part of countless birthday
+                celebrations — a privilege we cherish deeply.
               </p>
 
               <p>
                 As we continue to grow, our commitment remains the same: to
-                create desserts that don’t just taste amazing, but also create
-                beautiful memories. Thank you for choosing us to be part of your
-                sweetest moments. We look forward to serving you with even more
-                delightful creations.
+                create desserts that bring beautiful memories to life.
               </p>
             </div>
           </div>
 
           {/* RIGHT IMAGE */}
           <img
-            src="/src/elements/aboutus2.jpg"
+            src={aboutImg2}
             alt="Red Velvet Cake"
             className="hidden md:block w-56 h-56 md:w-64 md:h-100 object-cover rounded-xl shadow-2xl"
           />

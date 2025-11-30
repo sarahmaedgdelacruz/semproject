@@ -1,7 +1,6 @@
 import { useState } from "react";
 import supabase from "../../lib/supabaseClient";
 
-// IMAGE IMPORTS
 import csant from "../../elements/csant.jpg";
 import csantberry from "../../elements/csantberry.jpg";
 import plaincrosini from "../../elements/plaincrosini.jpg";

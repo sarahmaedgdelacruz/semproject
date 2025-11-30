@@ -1,4 +1,5 @@
-// CustomerService.jsx
+import React from "react";
+
 const CustomerService = () => {
   return (
     <section className="relative py-16">

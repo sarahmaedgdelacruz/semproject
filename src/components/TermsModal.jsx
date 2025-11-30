@@ -7,11 +7,11 @@ const TermsModal = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   const handleContinue = () => {
-    if (agree) {
-      onClose(); // close modal when checked + continue
-    } else {
+    if (!agree) {
       alert("Please agree to continue.");
+      return;
     }
+    onClose(); // Close modal when checkbox is checked
   };
 
   return (

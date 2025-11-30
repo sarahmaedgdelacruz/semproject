@@ -1,23 +1,22 @@
 import { useEffect, useState } from "react";
-import supabase from "../../lib/supabaseClient";
+import supabase from "../lib/supabaseClient";
 
 const Carts = () => {
   const [cartItems, setCartItems] = useState([]);
   const [user, setUser] = useState(null);
 
-  // 🔹 Get logged-in user
   const getCurrentUser = async () => {
     const { data } = await supabase.auth.getUser();
     setUser(data?.user);
   };
 
   const fetchCart = async () => {
-    if (!user) return; // Wait for user
+    if (!user) return;
 
     const { data, error } = await supabase
       .from("cart")
       .select("*")
-      .eq("user_id", user.id) // ⭐ REQUIRED
+      .eq("user_id", user.id)
       .order("id", { ascending: false });
 
     if (!error) setCartItems(data);
